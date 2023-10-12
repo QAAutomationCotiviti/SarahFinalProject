@@ -5,10 +5,14 @@ import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.edge.EdgeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
 
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
+
 import static java.lang.System.exit;
 
 public class utility {
     WebDriver driver;
+    private static final Logger log = LogManager.getLogger(utility.class);
 
     public WebDriver initializeDriver(String browser){
 
@@ -31,6 +35,12 @@ public class utility {
         } catch (InterruptedException e) {
             throw new RuntimeException(e);
         }
+    }
+    public void logInfo(String info){
+        log.info(info);
+    }
+    public void logErr(String error){
+        log.error(error);
     }
 
 }
